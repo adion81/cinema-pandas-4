@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +21,7 @@ namespace cinemapandas4.Models
         [Required]
         [MinLength (8)]
         [DataType ("Password")]
+        [StrongPassword]
         public string Password { get; set; }
 
         [Required]
@@ -29,5 +31,8 @@ namespace cinemapandas4.Models
         public string Confirm { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
+
+        public List<Movie> MyScreenings { get; set; }
+        public List<WatchParty> MyParties { get; set; }
     }
 }
